@@ -16,8 +16,17 @@ alias gs="git status"
 alias glc="git log -1 HEAD --stat"
 alias grs="git restore --staged "
 alias ga="git add "
+alias gc="git commit "
+alias gcls="git config -l"
+alias gp="git push "
 alias gcun="git config user.name "
 alias gcue="git config user.email "
+
+gpriv() {
+    git config --local core.sshCommand "ssh -i $1"
+    echo "Set private key for Git: $1"
+}
+alias gpls="git config -l | grep sshcommand"
 
 # OTHER IMPORTANT ALIASES
 alias ls="ls -lath"
