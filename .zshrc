@@ -29,4 +29,20 @@ gpriv() {
 alias gpls="git config -l | grep sshcommand"
 
 # OTHER IMPORTANT ALIASES
-alias ls="ls -lath"
+alias ls="ls -lathFGHi"
+alias vim="nvim"
+alias zshcfg="nvim $HOME/.zshrc"
+alias tmuxcfg="nvim $HOME/.tmux.conf"
+alias nvimcfg="nvim $HOME/.config/nvim/init.lua"
+
+# IMPORTANT INSTALLER
+alias install_rustup="curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+
+alias install_homebrew="/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+
+install_brew_items() {
+  brew install \
+    mactex \
+    neovim \
+    tmux
+}
