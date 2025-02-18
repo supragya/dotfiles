@@ -62,3 +62,22 @@ vim.keymap.set("n", "<leader>tt4", [[<Cmd>lua require('toggleterm').toggle(4)<CR
 
 -- On pressing <leader>tt5, we toggle the fifth terminal
 vim.keymap.set("n", "<leader>tt5", [[<Cmd>lua require('toggleterm').toggle(5)<CR>]], { noremap = true, silent = true })
+
+-- LSP Zero
+local lsp = require('lsp-zero').preset({})
+
+lsp.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp.default_keymaps({buffer = bufnr})
+end)
+
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+lsp.setup()
+
+if vim.lsp.inlay_hint then
+  vim.keymap.set("n", "<leader>L",
+  function() if vim.lsp.inlay_hint.is_enabled() then vim.lsp.inlay_hint.enable(false, { bufnr }) else vim.lsp.inlay_hint.enable(true, { bufnr }) end end, {})
+end
