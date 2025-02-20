@@ -14,12 +14,10 @@ local telescope_builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
 
 -- For finding Git files, we do "<leader>fgf" (find git files)
-vim.keymap.set("n", "<leader>fgf", telescope_builtin.git_files, {})
+vim.keymap.set("n", "<leader>fgg", telescope_builtin.git_files, {})
 
--- For finding Grep string, we do "<leader>fgs" (find grep string)
-vim.keymap.set("n", "<leader>fgs", function()
-	telescope_builtin.grep_string({ search = vim.fn.input("Find string >> ") });
-end) 
+-- Live Grep
+vim.keymap.set("n", "<leader>fgl", telescope_builtin.live_grep, {})
 
 -- For finding open buffers
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
